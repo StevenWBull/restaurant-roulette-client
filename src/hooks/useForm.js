@@ -1,7 +1,7 @@
 import { useState } from 'react';
 
 export const useForm = (initialValues) => {
-  const { values, setValues } = useState(initialValues);
+  const [ values, setValues ] = useState(initialValues);
 
   //can return an object or array
   return [ values, e => {
