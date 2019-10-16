@@ -1,11 +1,12 @@
 import React from 'react';
 
 export default React.createContext({
-  user: [],
+  user_name: [],
+  full_name: [],
+  password: [],
   restaurants: [],
   addUser: () => {},
   deleteUser: () => {},
   addRestaurant: () => {},
-  editRestaurant: () => {},
   deleteRestaurant: () => {}
 })

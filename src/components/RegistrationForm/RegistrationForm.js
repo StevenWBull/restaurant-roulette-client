@@ -1,13 +1,21 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { useForm } from '../../hooks/useForm';
+import ApiContext from '../../contexts/ApiContext';
 
 export default function RegistrationForm() {
   const [ values, handleChange ] = useForm({ full_name: '', user_name: '', password: '', retypePassword: '' });
 
+  /* const { postUser } = useContext(ApiContext); */
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log(values.user_name)
+  }
+
   console.log(values.full_name, values.user_name, values.password, values.retypePassword )
   return (
     <div>
-      <form>
+      <form onSubmit={handleSubmit}>
         <div>
           <h2>Sign Up!</h2>
         </div>
@@ -48,7 +56,7 @@ export default function RegistrationForm() {
             onChange={handleChange} />
         </div>
         <div>
-          <button>Submit</button>
+          <button type='submit'>Submit</button>
         </div>
       </form>
     </div>
