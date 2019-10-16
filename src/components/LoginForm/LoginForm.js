@@ -1,6 +1,9 @@
 import React from 'react';
+import { useForm } from '../../hooks/useForm';
 
-export function LoginForm() {
+export default function LoginForm() {
+  const [ values, handleChange ] = useForm({ user_name: '', password: '' })
+
   return (
     <div>
       <form>
