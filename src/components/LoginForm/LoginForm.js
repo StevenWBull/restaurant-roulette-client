@@ -3,10 +3,11 @@ import { Redirect } from 'react-router-dom';
 import { useForm } from '../../hooks/useForm';
 import ApiContext from '../../contexts/ApiContext';
 import './LoginForm.css';
+import ValidationContext from '../../contexts/ValidationContext';
 
 export default function LoginForm() {
   const [ error, setError ] = useState(null);
-  const [ loggedIn, setLoggedIn ] = useState(false);
+  const [ onlineUser, setOnlineUser ] = useContext(ValidationContext);
   const { postLogin } = useContext(ApiContext);
   const initialState = { user_name: '', password: '' };
 
@@ -14,7 +15,7 @@ export default function LoginForm() {
     try {
       console.log({ ...values })
       await postLogin({ ...values })
-      setLoggedIn(!loggedIn);
+      setOnlineUser();
     } catch (error) {
       setError(error);
       console.log(error)
@@ -26,7 +27,7 @@ export default function LoginForm() {
   console.log(values.user_name, values.password)
   return (
     <div>
-      {loggedIn ? <Redirect to='/home' /> : null}
+      {onlineUser ? <Redirect to='/home' /> : null}
       <form onSubmit={handleSubmit}>
         <div>
           <h2>Please Sign In</h2>

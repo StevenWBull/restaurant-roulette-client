@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Route, Switch } from 'react-router-dom';
 import ValidationContext from '../../contexts/ValidationContext';
 import MainPage from '../MainPage/MainPage';
@@ -11,31 +11,28 @@ import Header from '../Header/Header';
 import { TokenService } from '../../services/token-service';
 
 export default function App() {
-  const isError = (error) => {
-    const newError = error;
-    return newError;
-  }
+  const [ onlineUser, setOnlineUser ] = useState(!!TokenService.hasAuthToken());
 
-  const isUserOnline = {
-    loggedIn: TokenService.hasAuthToken ? true : false
-  }
+  useEffect( () => {
+    setOnlineUser(!!TokenService.hasAuthToken())
+  }, [onlineUser])
 
   return (
     <>
-      <header>
-        <Header />
-      </header>
-      <main>
-        <ValidationContext.Provider value={{isError, isUserOnline}}>
-          <Switch>
-            <Route exact path='/' component={MainPage} />
-            <Route path='/login' component={LoginForm} />
-            <Route path='/register' component={RegistrationForm} />
-            <Route path='/home' component={UserHomeScreen} />
-            <Route path='/addrestaurant' component={AddRestaurant} />
-          </Switch>
-        </ValidationContext.Provider>
-      </main>
+     <ValidationContext.Provider value={[onlineUser, setOnlineUser]}>
+        <header>
+          <Header />
+        </header>
+        <main>
+            <Switch>
+              <Route exact path='/' component={MainPage} />
+              <Route path='/login' component={LoginForm} />
+              <Route path='/register' component={RegistrationForm} />
+              <Route path='/home' component={UserHomeScreen} />
+              <Route path='/addrestaurant' component={AddRestaurant} />
+            </Switch>
+        </main>
+      </ValidationContext.Provider>
     </>
   );
 }
