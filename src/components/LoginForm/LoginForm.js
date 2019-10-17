@@ -3,14 +3,13 @@ import { useForm } from '../../hooks/useForm';
 import ApiContext from '../../contexts/ApiContext';
 
 export default function LoginForm() {
-  const initialState = { user_name: '', password: '' };
-  const [ values, handleChange ] = useForm(initialState);
   const { postLogin } = useContext(ApiContext);
-
-  const handleSubmit = (ev) => {
-    ev.preventDefault();
+  const initialState = { user_name: '', password: '' };
+  const login = () => {
+    console.log({ ...values })
     postLogin({ ...values })
-  }
+  };
+  const [ values, handleChange, handleSubmit ] = useForm(initialState, login);
 
   console.log(values.user_name, values.password)
   return (
@@ -22,10 +21,10 @@ export default function LoginForm() {
         <div>
           <label htmlFor='login_user_name'>Username: </label>
           <input 
-            type="text" 
+            type="text"
             id='login_user_name' 
             name='user_name'
-            value={values.user_name}
+            value={values.user_name || ''}
             onChange={handleChange} />
         </div>
         <div>
