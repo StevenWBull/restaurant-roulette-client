@@ -1,15 +1,17 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { useForm } from '../../hooks/useForm';
 import ApiContext from '../../contexts/ApiContext';
 
 export default function RegistrationForm() {
-  const [ values, handleChange ] = useForm({ full_name: '', user_name: '', password: '', retypePassword: '' });
+  const initialState = { full_name: '', user_name: '', password: '', retypePassword: '' };
+  const [ values, handleChange, reset ] = useForm(initialState);
+  const { postUser } = useContext(ApiContext);
 
-  /* const { postUser } = useContext(ApiContext); */
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log(values.user_name)
+  const handleSubmit = (ev) => {
+    ev.preventDefault();
+    postUser({ ...values })
+    values.full_name = '';
+    values.password = '';
   }
 
   console.log(values.full_name, values.user_name, values.password, values.retypePassword )
