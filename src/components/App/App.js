@@ -6,17 +6,23 @@ import RegistrationForm from '../RegistrationForm/RegistrationForm';
 import UserHomeScreen from '../UserHomeScreen/UserHomeScreen';
 import AddRestaurant from '../AddRestaurant/AddRestaurant';
 import './App.css';
+import Header from '../Header/Header';
 
 export default function App() {
   return (
-    <main>
-      <Switch>
-        <Route exact path='/' component={MainPage} />
-        <Route path='/login' component={LoginForm} />
-        <Route path='/register' component={RegistrationForm} />
-        <Route path='/home' component={UserHomeScreen} />
-        <Route path='/addrestaurant' component={AddRestaurant} />
-      </Switch>
-    </main>
+    <>
+      <header>
+        <Header />
+      </header>
+      <main>
+        <Switch>
+          <Route exact path='/' component={MainPage} />
+          <Route path='/login' component={LoginForm} />
+          <Route path='/register' component={RegistrationForm} />
+          <Route path='/home' component={UserHomeScreen} />
+          <Route path='/addrestaurant' component={AddRestaurant} />
+        </Switch>
+      </main>
+    </>
   );
 }
