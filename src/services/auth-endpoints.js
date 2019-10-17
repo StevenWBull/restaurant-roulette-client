@@ -44,13 +44,14 @@ export const AuthApiService = {
         : res.json();
     })
   },
-  addRestaurants() {
+  addRestaurants(restaurant) {
     return fetch(`${config.API_ENDPOINT}/restaurants`, {
-      method: 'GET',
+      method: 'POST',
       headers: {
         'content-type': 'application/json',
         'Authorization': `bearer ${TokenService.getAuthToken()}`
-      }
+      },
+      body: JSON.stringify(restaurant)
     })
     .then( res => {
       return (!res.ok)
@@ -58,9 +59,9 @@ export const AuthApiService = {
         : res.json();
     })
   },
-  deleteRestaurants() {
-    return fetch(`${config.API_ENDPOINT}/restaurants`, {
-      method: 'GET',
+  deleteRestaurants(restaurantId) {
+    return fetch(`${config.API_ENDPOINT}/restaurants/${restaurantId}`, {
+      method: 'DELETE',
       headers: {
         'content-type': 'application/json',
         'Authorization': `bearer ${TokenService.getAuthToken()}`
