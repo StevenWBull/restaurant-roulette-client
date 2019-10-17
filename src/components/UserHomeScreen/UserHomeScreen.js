@@ -19,18 +19,26 @@ export default function UserHomeScreen() {
 }, [page, cuisine])
 
   return (
-    <section>
-      <ul>
-        {restaurants.map( restaurant => (
-          <li key={restaurant.id}>
-            <h3>{restaurant.restaurant_name}</h3>
-            <span>{restaurant.street_address} {restaurant.state_address} {restaurant.zipcode}</span>
-            <br />
-            <span>{restaurant.cuisine_type}</span>
-          </li>
-        ))
-       }
-      </ul>
-    </section>
+    <>
+      <section>
+        <button>Add Restaurant</button>
+        <button>Where am I eating?</button>
+      </section>
+      <section>
+        <ul>
+          {restaurants.map( restaurant => (
+            <li key={restaurant.id}>
+              <h3>{restaurant.restaurant_name}</h3>
+              <span>{restaurant.street_address} {restaurant.state_address} {restaurant.zipcode}</span>
+              <br />
+              <span>{restaurant.cuisine_type}</span>
+              <br />
+              <button >Delete</button>
+            </li>
+          ))
+        }
+        </ul>
+      </section>
+    </>
   )
 }
