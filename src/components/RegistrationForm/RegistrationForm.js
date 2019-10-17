@@ -4,13 +4,24 @@ import ApiContext from '../../contexts/ApiContext';
 import './RegistrationForm.css';
 
 export default function RegistrationForm() {
+  const [ error, setError ] = useState(null);
   const { postUser } = useContext(ApiContext);
   const initialState = { full_name: '', user_name: '', password: '', retypePassword: '' };
 
-  const register = () => {
-    console.log({ ...values })
-    postUser({ ...values })
+  const register = async () => {
+    try {
+      if ( values.password !== values.retypePassword) {
+        setError('Passwords don\'t match');
+        return;
+      }
+      console.log({ ...values })
+      await postUser({ ...values })
+    } catch (error) {
+      console.log('I ran!')
+      setError(error.error)
+    }
   };
+
   const [ values, handleChange, handleSubmit ] = useForm(initialState, register);
 
   console.log(values.full_name, values.user_name, values.password, values.retypePassword )
@@ -56,6 +67,7 @@ export default function RegistrationForm() {
             value={values.retypePassword}
             onChange={handleChange} />
         </div>
+        {error && <span>{error}</span>}
         <div>
           <button type='submit'>Submit</button>
         </div>

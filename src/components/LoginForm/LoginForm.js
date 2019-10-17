@@ -17,8 +17,8 @@ export default function LoginForm() {
       await postLogin({ ...values })
       setOnlineUser();
     } catch (error) {
-      setError(error);
       console.log(error)
+      setError(error.error);
     }
   };
 
@@ -50,6 +50,7 @@ export default function LoginForm() {
             value={values.password} 
             onChange={handleChange} />
         </div>
+        { error && <span>{error}</span>}
         <div>
           <button type='submit'>Submit</button>
         </div>
