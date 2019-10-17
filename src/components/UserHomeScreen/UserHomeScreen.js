@@ -2,6 +2,7 @@
 import React, { useState, useContext, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import ApiContext from '../../contexts/ApiContext';
+import './UserHomeScreen.css';
 
 export default function UserHomeScreen() {
   const [ page, setPage ] = useState(1);

@@ -1,6 +1,7 @@
 import React, { useContext, useState } from 'react';
 import { useForm } from '../../hooks/useForm';
 import ApiContext from '../../contexts/ApiContext';
+import './RegistrationForm.css';
 
 export default function RegistrationForm() {
   const { postUser } = useContext(ApiContext);

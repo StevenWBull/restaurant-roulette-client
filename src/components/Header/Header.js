@@ -1,11 +1,12 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { Link } from 'react-router-dom';
+import ValidationContext from '../../contexts/ValidationContext';
 
 export default function Header() {
-  const [ clicked, setClicked ] = useState(false);
+  const { isUserOnline } = useContext(ValidationContext);
 
-  const handleClick = () => {
-    setClicked(!clicked);
+  const handleLogout = () => {
+
   }
 
   return (
@@ -13,19 +14,11 @@ export default function Header() {
       <div>
         <h2>Restaurant Roulette</h2>
       </div>
-      { !clicked && 
-      <div>
+      { isUserOnline &&
+      <div className='user__logout'>
         <h4>Welcome!</h4>
-        <div>
-          <Link to='/register'><span onClick={handleClick}>Sign Up</span></Link>
-          <span> | </span>
-          <Link to='/login'><span onClick={handleClick}>Sign In</span></Link>
-        </div>
-      </div>}
-      { clicked && 
-      <div>
         <Link to='/'>
-          <span onClick={handleClick}>Logout</span>
+          <span onClick={handleLogout}>Logout</span>
         </Link>
       </div>}
     </>
