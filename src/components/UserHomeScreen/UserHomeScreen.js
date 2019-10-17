@@ -1,5 +1,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useState, useContext, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import ApiContext from '../../contexts/ApiContext';
 
 export default function UserHomeScreen() {
@@ -7,7 +8,8 @@ export default function UserHomeScreen() {
   const [ cuisine, setCuisine ] = useState(null);
   const [ restaurants, setRestaurants ] = useState([]);
   const [ isLoading, setIsLoading ] = useState(true);
-  const { getRestaurants } = useContext(ApiContext)
+  const [ deleteRest, setDeleteRest ] = useState(false);
+  const { getRestaurants, deleteRestaurants } = useContext(ApiContext);
   
   useEffect( () => {
     const getData = async () => {
@@ -16,12 +18,19 @@ export default function UserHomeScreen() {
       setIsLoading(false);
     }
     getData();
-}, [page, cuisine])
+  }, [page, cuisine, deleteRest]);
+
+  const handleDelete = ev => {
+    deleteRestaurants(ev.target.value);
+    setDeleteRest(true);
+  }
 
   return (
     <>
       <section>
-        <button>Add Restaurant</button>
+        <Link to='/addrestaurant'>
+          <button>Add Restaurant</button>
+        </Link>
         <button>Where am I eating?</button>
       </section>
       <section>
@@ -33,7 +42,7 @@ export default function UserHomeScreen() {
               <br />
               <span>{restaurant.cuisine_type}</span>
               <br />
-              <button >Delete</button>
+              <button onClick={handleDelete} value={restaurant.id}>Delete</button>
             </li>
           ))
         }
