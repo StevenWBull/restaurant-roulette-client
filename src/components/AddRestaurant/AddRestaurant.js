@@ -1,19 +1,24 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import ApiContext from '../../contexts/ApiContext';
 import { useForm } from '../../hooks/useForm';
 
 export default function AddRestaurant() {
   const { addRestaurants } = useContext(ApiContext);
+  const [ error, setError ] = useState(null);
   const initialState = { restaurant_name: '', street_address: '', city_address: '', zipcode: '', cuisine_type: '' };
 
   const goBack = () => {
     window.history.back()
   };
 
-  const addNewRestaurant = () => {
-    console.log({ ...values });
-    addRestaurants({ ...values });
-    goBack();
+  const addNewRestaurant = async () => {
+    try {
+      console.log({ ...values });
+      await addRestaurants({ ...values });
+      goBack();
+    } catch(error) {
+      setError(error.error);
+    }
   };
 
   const [ values, handleChange, handleSubmit ] = useForm(initialState, addNewRestaurant);
@@ -69,8 +74,10 @@ export default function AddRestaurant() {
             value={values.cuisine_type}
             onChange={handleChange} />
         </div>
+        {error && <span>{error}</span>}
         <div>
           <button type='submit'>Submit</button>
+          <button onClick={goBack}>Go Back</button>
         </div>
       </form>
     </div>
