@@ -34,10 +34,11 @@ export default function UserHomeScreen() {
       getRandomRestaurant();
     }
     return;
-  }, [generateRandom]);
+  }, [generateRandom, deleteRest]);
 
   const handleDelete = ev => {
     deleteRestaurants(ev.target.value);
+    setGenerateRandom(false);
     setDeleteRest(true);
   }
 
