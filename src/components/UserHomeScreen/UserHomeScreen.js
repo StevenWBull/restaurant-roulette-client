@@ -7,32 +7,51 @@ import './UserHomeScreen.css';
 export default function UserHomeScreen() {
   const [ cuisine, setCuisine ] = useState(null);
   const [ restaurants, setRestaurants ] = useState([]);
-  const [ goBack, setGoBack ] = useState(false);
+  const [ generateRandom, setGenerateRandom ] = useState(false);
   const [ isLoading, setIsLoading ] = useState(true);
   const [ deleteRest, setDeleteRest ] = useState(false);
-  const { getRestaurants, deleteRestaurants } = useContext(ApiContext);
+  const { getRestaurants, deleteRestaurants, getRandomRestaurants } = useContext(ApiContext);
   
   useEffect( () => {
-    const getData = async () => {
+    if (!generateRandom) {
+      const getData = async () => {
       const data = await getRestaurants()
       setRestaurants(data);
       setIsLoading(false);
+      }
+      getData();
     }
-    getData();
-  }, [cuisine, deleteRest]);
+    return;
+  }, [cuisine, deleteRest, generateRandom]);
+
+  useEffect( () => {
+    if (generateRandom) {
+      const getRandomRestaurant = async () => {
+        const randomData = await getRandomRestaurants();
+        setRestaurants(randomData);
+        setIsLoading(false);
+      }
+      getRandomRestaurant();
+    }
+    return;
+  }, [generateRandom]);
 
   const handleDelete = ev => {
     deleteRestaurants(ev.target.value);
     setDeleteRest(true);
   }
 
+  const handleRandomGenerate = () => {
+    setGenerateRandom(!generateRandom)
+  }
+
   return (
     <>
       <section>
-        <Link to='/addrestaurant'>
+        { !generateRandom && <Link to='/addrestaurant'>
           <button>Add Restaurant</button>
-        </Link>
-        <button>Where am I eating?</button>
+        </Link>}
+        <button onClick={handleRandomGenerate}>{ !generateRandom ? 'Where am I eating?' : 'Thanks so much!' }</button>
       </section>
       <section>
         <ul>
