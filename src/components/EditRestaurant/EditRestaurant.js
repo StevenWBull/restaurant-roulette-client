@@ -3,8 +3,9 @@ import ApiContext from '../../contexts/ApiContext';
 import { useForm } from '../../hooks/useForm';
 
 export default function AddRestaurant() {
-  const { addRestaurants } = useContext(ApiContext);
+  const { editRestaurants } = useContext(ApiContext);
   const [ error, setError ] = useState(null);
+  const [ ]
   const initialState = { restaurant_name: '', street_address: '', city_address: '', zipcode: '', cuisine_type: '' };
 
   const goBack = () => {
@@ -13,7 +14,7 @@ export default function AddRestaurant() {
 
   const addNewRestaurant = async () => {
     try {
-      await addRestaurants({ ...values });
+      await editRestaurants({ ...values });
       goBack();
     } catch(error) {
       setError(error.error);
@@ -26,7 +27,7 @@ export default function AddRestaurant() {
     <div>
       <form onSubmit={handleSubmit}>
         <div>
-          <h2>Add New Restaurant</h2>
+          <h2>Edit Restaurant</h2>
         </div>
         <div>
           <label htmlFor='add_restaurant_name'>Restaurant Name: </label>
