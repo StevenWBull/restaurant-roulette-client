@@ -13,7 +13,6 @@ export default function AddRestaurant() {
 
   const addNewRestaurant = async () => {
     try {
-      console.log({ ...values });
       await addRestaurants({ ...values });
       goBack();
     } catch(error) {

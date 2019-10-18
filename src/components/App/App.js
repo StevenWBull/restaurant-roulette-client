@@ -9,6 +9,8 @@ import AddRestaurant from '../AddRestaurant/AddRestaurant';
 import './App.css';
 import Header from '../Header/Header';
 import { TokenService } from '../../services/token-service';
+import PrivateOnlyRoute from '../../routes/PrivateOnlyRoute';
+import PublicOnlyRoute from '../../routes/PublicOnlyRoute';
 
 export default function App() {
   const [ onlineUser, setOnlineUser ] = useState(!!TokenService.hasAuthToken());
@@ -26,10 +28,10 @@ export default function App() {
         <main>
             <Switch>
               <Route exact path='/' component={MainPage} />
-              <Route path='/login' component={LoginForm} />
-              <Route path='/register' component={RegistrationForm} />
-              <Route path='/home' component={UserHomeScreen} />
-              <Route path='/addrestaurant' component={AddRestaurant} />
+              <PublicOnlyRoute path='/login' component={LoginForm} />
+              <PublicOnlyRoute path='/register' component={RegistrationForm} />
+              <PrivateOnlyRoute path='/home' component={UserHomeScreen} />
+              <PrivateOnlyRoute path='/addrestaurant' component={AddRestaurant} />
             </Switch>
         </main>
       </ValidationContext.Provider>
