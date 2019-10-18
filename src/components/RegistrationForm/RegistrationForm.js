@@ -1,11 +1,14 @@
 import React, { useContext, useState } from 'react';
+import { Redirect } from 'react-router-dom';
 import { useForm } from '../../hooks/useForm';
 import ApiContext from '../../contexts/ApiContext';
 import './RegistrationForm.css';
+import ValidationContext from '../../contexts/ValidationContext';
 
 export default function RegistrationForm() {
   const [ error, setError ] = useState(null);
-  const { postUser } = useContext(ApiContext);
+  const { postUser, postLogin } = useContext(ApiContext);
+  const [ onlineUser, setOnlineUser ] = useContext(ValidationContext);
   const initialState = { full_name: '', user_name: '', password: '', retypePassword: '' };
 
   const register = async () => {
@@ -16,6 +19,12 @@ export default function RegistrationForm() {
       }
       console.log({ ...values })
       await postUser({ ...values })
+
+      //destructure initial values object to only send password and user_name for login
+      const { full_name, retypePassword, ...loginValues } = { ...values};
+      console.log(loginValues);
+      await postLogin(loginValues);
+      setOnlineUser();
     } catch (error) {
       console.log('I ran!')
       setError(error.error)
@@ -27,6 +36,7 @@ export default function RegistrationForm() {
   console.log(values.full_name, values.user_name, values.password, values.retypePassword )
   return (
     <div>
+      { onlineUser && <Redirect to='/home' />}
       <form onSubmit={handleSubmit}>
         <div>
           <h2>Sign Up!</h2>
