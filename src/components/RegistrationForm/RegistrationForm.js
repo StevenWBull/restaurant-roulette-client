@@ -25,6 +25,7 @@ export default function RegistrationForm() {
       console.log(loginValues);
       await postLogin(loginValues);
       setOnlineUser();
+      
     } catch (error) {
       console.log('I ran!')
       setError(error.error)

@@ -44,6 +44,20 @@ export const AuthApiService = {
         : res.json();
     })
   },
+  getRandomRestaurants() {
+    return fetch(`${config.API_ENDPOINT}/random-restaurants`, {
+      method: 'GET',
+      headers: {
+        'content-type': 'application/json',
+        'Authorization': `bearer ${TokenService.getAuthToken()}`
+      }
+    })
+    .then( res => {
+      return (!res.ok)
+        ? res.json().then( e => Promise.reject(e))
+        : res.json();
+    })
+  },
   addRestaurants(restaurant) {
     return fetch(`${config.API_ENDPOINT}/restaurants`, {
       method: 'POST',

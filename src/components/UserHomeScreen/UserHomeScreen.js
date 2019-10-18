@@ -5,9 +5,9 @@ import ApiContext from '../../contexts/ApiContext';
 import './UserHomeScreen.css';
 
 export default function UserHomeScreen() {
-  const [ page, setPage ] = useState(1);
   const [ cuisine, setCuisine ] = useState(null);
   const [ restaurants, setRestaurants ] = useState([]);
+  const [ goBack, setGoBack ] = useState(false);
   const [ isLoading, setIsLoading ] = useState(true);
   const [ deleteRest, setDeleteRest ] = useState(false);
   const { getRestaurants, deleteRestaurants } = useContext(ApiContext);
@@ -19,7 +19,7 @@ export default function UserHomeScreen() {
       setIsLoading(false);
     }
     getData();
-  }, [page, cuisine, deleteRest]);
+  }, [cuisine, deleteRest]);
 
   const handleDelete = ev => {
     deleteRestaurants(ev.target.value);
