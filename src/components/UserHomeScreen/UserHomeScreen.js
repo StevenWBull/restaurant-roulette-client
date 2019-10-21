@@ -13,7 +13,7 @@ export default function UserHomeScreen() {
   const [ isLoading, setIsLoading ] = useState(true);
   const [ deleteRest, setDeleteRest ] = useState(false);
   const [ editMode, setEditMode ] = useState(-1);
-  const { getRestaurants, deleteRestaurants, getRandomRestaurants } = useContext(ApiContext);
+  const { getRestaurants, deleteRestaurants, getRandomRestaurants, editRestaurants } = useContext(ApiContext);
   
   useEffect( () => {
     if (!generateRandom) {
@@ -60,7 +60,16 @@ export default function UserHomeScreen() {
     setEditMode(-1);
   }
 
-  const [ values, handleChange, handleSubmit ] = useForm({});
+  const updateRestaurant = async () => {
+    try {
+      await editRestaurants(editMode);
+      setEditMode(-1);
+    } catch(error) {
+      setError(error.error);
+    }
+  }
+
+  const [ values, handleChange, handleSubmit ] = useForm({}, updateRestaurant);
   console.log(values);
 
   const renderPageView = () => {
