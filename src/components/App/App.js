@@ -6,6 +6,7 @@ import LoginForm from '../LoginForm/LoginForm';
 import RegistrationForm from '../RegistrationForm/RegistrationForm';
 import UserHomeScreen from '../UserHomeScreen/UserHomeScreen';
 import AddRestaurant from '../AddRestaurant/AddRestaurant';
+import Footer from '../Footer/Footer';
 import './App.css';
 import Header from '../Header/Header';
 import { TokenService } from '../../services/token-service';
@@ -34,6 +35,9 @@ export default function App() {
               <PrivateOnlyRoute path='/addrestaurant' component={AddRestaurant} />
             </Switch>
         </main>
+        <footer>
+          <Footer />
+        </footer>
       </ValidationContext.Provider>
     </>
   );
