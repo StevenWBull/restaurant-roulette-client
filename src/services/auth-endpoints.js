@@ -73,6 +73,16 @@ export const AuthApiService = {
         : res.json();
     })
   },
+  editRestaurants(restaurantId) {
+    return fetch(`${config.API_ENDPOINT}/restaurants/${restaurantId}`, {
+      method: 'PATCH',
+      headers: {
+        'content-type': 'application/json',
+        'Authorization': `bearer ${TokenService.getAuthToken()}`
+      }
+    })
+    .catch(error => Promise.reject(error));
+  },
   deleteRestaurants(restaurantId) {
     return fetch(`${config.API_ENDPOINT}/restaurants/${restaurantId}`, {
       method: 'DELETE',
