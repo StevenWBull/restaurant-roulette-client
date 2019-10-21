@@ -73,13 +73,14 @@ export const AuthApiService = {
         : res.json();
     })
   },
-  editRestaurants(restaurantId) {
+  editRestaurants(restaurantId, updatedRestaurantData) {
     return fetch(`${config.API_ENDPOINT}/restaurants/${restaurantId}`, {
       method: 'PATCH',
       headers: {
         'content-type': 'application/json',
         'Authorization': `bearer ${TokenService.getAuthToken()}`
-      }
+      },
+      body: JSON.stringify(updatedRestaurantData)
     })
     .catch(error => Promise.reject(error));
   },

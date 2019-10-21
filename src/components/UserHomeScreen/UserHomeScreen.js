@@ -62,7 +62,8 @@ export default function UserHomeScreen() {
 
   const updateRestaurant = async () => {
     try {
-      await editRestaurants(editMode);
+      console.log({ ...values })
+      await editRestaurants(editMode, { ...values });
       setEditMode(-1);
     } catch(error) {
       setError(error.error);
