@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react';
-import { Redirect } from 'react-router-dom';
+import { Redirect, Link } from 'react-router-dom';
 import { useForm } from '../../hooks/useForm';
 import ApiContext from '../../contexts/ApiContext';
 import './LoginForm.css';
@@ -26,15 +26,15 @@ export default function LoginForm() {
 
   console.log(values.user_name, values.password)
   return (
-    <div>
+    <div className='loginContainer'>
       {onlineUser ? <Redirect to='/home' /> : null}
       <form onSubmit={handleSubmit}>
         <div>
           <h2>Please Sign In</h2>
         </div>
         <div>
-          <label htmlFor='login_user_name'>Username: </label>
           <input 
+            placeholder='Username'
             type="text"
             id='login_user_name' 
             name='user_name'
@@ -42,8 +42,8 @@ export default function LoginForm() {
             onChange={handleChange} />
         </div>
         <div>
-          <label htmlFor='login_password'>Password: </label>
-          <input 
+          <input
+            placeholder='Password'
             type="password" 
             id='login_password' 
             name='password' 
@@ -52,7 +52,10 @@ export default function LoginForm() {
         </div>
         { error && <span>{error}</span>}
         <div>
-          <button type='submit'>Submit</button>
+          <button type='submit'>Login</button>
+        </div>
+        <div>
+          <p className='userRedirect'>Don't have an account? <Link to='/register'>Sign up</Link></p>
         </div>
       </form>
     </div>
