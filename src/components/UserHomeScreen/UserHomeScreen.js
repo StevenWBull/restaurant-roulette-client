@@ -66,7 +66,8 @@ export default function UserHomeScreen() {
     }
   }
 
-  const [ values, handleChange, handleSubmit ] = useForm({}, updateRestaurant);
+  const initialState = { restaurant_name: '', street_address: '', city_address: '', zipcode: '', cuisine_type: '' };
+  const [ values, handleChange, handleSubmit ] = useForm(initialState, updateRestaurant);
 
   const renderPageView = () => {
     return (
