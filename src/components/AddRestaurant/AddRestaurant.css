@@ -1,0 +1,29 @@
+.addRestaurantContainer {
+  width: 90%;
+  margin: 35% 5%;
+  text-align: center;
+  border: 1px solid black;
+  padding: 6%;
+}
+
+form > div > h2 {
+  padding-bottom: 6%;
+}
+
+form > div > input {
+  height: 24px;
+  margin-bottom: 1%;
+  width: 80%;
+  outline: none;
+  border: none;
+  border-bottom: 1px solid rgb(124, 124, 124);
+}
+
+input:focus {
+  border-bottom: 1.5px solid black;
+  box-shadow: 1px gray;
+}
+
+#add_restaurant_cuisine_type {
+  margin-bottom: 6%;
+}
