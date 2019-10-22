@@ -80,62 +80,68 @@ export default function UserHomeScreen() {
             editMode !== restaurant.id
               ?
               <li key={restaurant.id}>
-                <h3>{restaurant.restaurant_name}</h3>
-                <span>{restaurant.street_address} {restaurant.state_address} {restaurant.zipcode}</span>
+                <h3 className='restaurantName'>{restaurant.restaurant_name}</h3>
+                <span>{restaurant.street_address} 
+                <br />
+                {restaurant.state_address} {restaurant.zipcode}</span>
                 <br />
                 <span>{restaurant.cuisine_type}</span>
                 <br />
-                <button value={restaurant.id} onClick={handleEdit}>Edit</button>
-                <button onClick={handleDelete} value={restaurant.id}>Delete</button>
+                <div className='restuarantControlButtons'>
+                  <button value={restaurant.id} onClick={handleEdit}>Edit</button>
+                  <button onClick={handleDelete} value={restaurant.id}>Delete</button>
+                </div>              
               </li>
               :
-              <form onSubmit={handleSubmit} key={restaurant.id}>
-                <div>
-                  <input 
-                    type="text" 
-                    id='add_restaurant_name'
-                    name='restaurant_name'
-                    defaultValue={restaurant.restaurant_name}
-                    onChange={handleChange} />
-                </div>
-                <div>
-                  <input 
-                    type="text" 
-                    id='add_restaurant_street_address'
-                    name='street_address'
-                    defaultValue={restaurant.street_address}
-                    onChange={handleChange} />
-                </div>
-                <div>
-                  <input 
-                    type="text" 
-                    id='add_restaurant_state_address'
-                    name='state_address'
-                    defaultValue={restaurant.state_address}
-                    onChange={handleChange} />
-                </div>
-                <div>
-                  <input 
-                    type="integer" 
-                    id='add_restaurant_zipcode'
-                    name='zipcode'
-                    defaultValue={restaurant.zipcode}
-                    onChange={handleChange} />
-                </div>
-                <div>
-                  <input 
-                    type="text" 
-                    id='add_restaurant_cuisine_type'
-                    name='cuisine_type'
-                    defaultValue={restaurant.cuisine_type}
-                    onChange={handleChange} />
-                </div>
-                {error && <span>{error}</span>}
-                <div>
-                  <button type='submit'>Submit</button>
-                  <button onClick={cancelEditMode}>Cancel</button>
-                </div>
-              </form>
+              <div className='editRestaurantContainer'>
+                <form onSubmit={handleSubmit} key={restaurant.id}>
+                  <div>
+                    <input 
+                      type="text" 
+                      id='add_restaurant_name'
+                      name='restaurant_name'
+                      defaultValue={restaurant.restaurant_name}
+                      onChange={handleChange} />
+                  </div>
+                  <div>
+                    <input 
+                      type="text" 
+                      id='add_restaurant_street_address'
+                      name='street_address'
+                      defaultValue={restaurant.street_address}
+                      onChange={handleChange} />
+                  </div>
+                  <div>
+                    <input 
+                      type="text" 
+                      id='add_restaurant_state_address'
+                      name='state_address'
+                      defaultValue={restaurant.state_address}
+                      onChange={handleChange} />
+                  </div>
+                  <div>
+                    <input 
+                      type="integer" 
+                      id='add_restaurant_zipcode'
+                      name='zipcode'
+                      defaultValue={restaurant.zipcode}
+                      onChange={handleChange} />
+                  </div>
+                  <div>
+                    <input 
+                      type="text" 
+                      id='add_restaurant_cuisine_type'
+                      name='cuisine_type'
+                      defaultValue={restaurant.cuisine_type}
+                      onChange={handleChange} />
+                  </div>
+                  {error && <span>{error}</span>}
+                  <div className='restuarantControlButtons'>
+                    <button type='submit'>Submit</button>
+                    <button onClick={cancelEditMode}>Cancel</button>
+                  </div>
+                </form>
+              </div>
           ))
         }
         </ul>
@@ -144,13 +150,13 @@ export default function UserHomeScreen() {
 
   return (
     <>
-      <section>
+      <section className='userHomeScreenButtons'>
         { !generateRandom && <Link to='/addrestaurant'>
           <button>Add Restaurant</button>
         </Link>}
         <button onClick={handleRandomGenerate}>{ !generateRandom ? 'Where am I eating?' : 'Thanks so much!' }</button>
       </section>
-      <section>
+      <section className='userHomeScreenContainer'>
         {renderPageView()}
       </section>
     </>

@@ -1,0 +1,36 @@
+.userHomeScreenContainer {
+  width: 90%;
+  margin: 5% 5%;
+}
+
+.userHomeScreenButtons {
+  width: 90%;
+  margin: 20% 5% 5%;
+  text-align: center;
+}
+
+.editRestaurantContainer {
+    text-align: left;
+    border: 1px solid black;
+    padding: 3%;
+}
+
+ul {
+  padding: 0;
+}
+
+.restaurantName {
+  margin-bottom: 2%;
+}
+
+li {
+  list-style: none;
+  margin: 3% 0%;
+  border: 1px solid black;
+  padding: 3%;
+}
+
+.restuarantControlButtons {
+  display: flex;
+  justify-content: flex-end;
+}
