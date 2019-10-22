@@ -13,18 +13,15 @@ export default function LoginForm() {
 
   const login = async () => {
     try {
-      console.log({ ...values })
       await postLogin({ ...values })
       setOnlineUser();
     } catch (error) {
-      console.log(error)
       setError(error.error);
     }
   };
 
   const [ values, handleChange, handleSubmit ] = useForm(initialState, login);
 
-  console.log(values.user_name, values.password)
   return (
     <div className='loginContainer'>
       {onlineUser ? <Redirect to='/home' /> : null}

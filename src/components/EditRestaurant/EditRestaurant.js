@@ -5,7 +5,6 @@ import { useForm } from '../../hooks/useForm';
 export default function AddRestaurant() {
   const { editRestaurants } = useContext(ApiContext);
   const [ error, setError ] = useState(null);
-  const [ ]
   const initialState = { restaurant_name: '', street_address: '', city_address: '', zipcode: '', cuisine_type: '' };
 
   const goBack = () => {

@@ -10,7 +10,6 @@ export default function Header() {
   const logoutUser = () => {
     TokenService.clearAuthToken();
     setOnlineUser();
-    console.log(onlineUser);
   }
 
   return (

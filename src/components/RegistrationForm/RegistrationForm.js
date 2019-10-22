@@ -17,14 +17,13 @@ export default function RegistrationForm() {
         setError('Passwords don\'t match');
         return;
       }
-      console.log({ ...values })
       await postUser({ ...values })
 
       //destructure initial values object to only send password and user_name for login
       const { full_name, retypePassword, ...loginValues } = { ...values};
-      console.log(loginValues);
       await postLogin(loginValues);
       setOnlineUser();
+
     } catch (error) {
       setError(error.error)
     }
@@ -32,7 +31,6 @@ export default function RegistrationForm() {
 
   const [ values, handleChange, handleSubmit ] = useForm(initialState, register);
 
-  console.log(values.full_name, values.user_name, values.password, values.retypePassword )
   return (
     <div className='registrationContainer'>
       { onlineUser && <Redirect to='/home' />}

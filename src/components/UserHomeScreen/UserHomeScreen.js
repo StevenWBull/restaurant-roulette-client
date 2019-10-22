@@ -50,10 +50,7 @@ export default function UserHomeScreen() {
   }
 
   const handleEdit = (ev) => {
-    console.log(ev.target.value)
-    console.log('I ran!')
     setEditMode(Number(ev.target.value));
-    console.log(editMode);
   }
 
   const cancelEditMode = () => {
@@ -62,7 +59,6 @@ export default function UserHomeScreen() {
 
   const updateRestaurant = async () => {
     try {
-      console.log({ ...values })
       await editRestaurants(editMode, { ...values });
       setEditMode(-1);
     } catch(error) {
@@ -71,7 +67,6 @@ export default function UserHomeScreen() {
   }
 
   const [ values, handleChange, handleSubmit ] = useForm({}, updateRestaurant);
-  console.log(values);
 
   const renderPageView = () => {
     return (
