@@ -7,9 +7,9 @@ header {
 }
 
 .headerContainer {
-  width: 80%;
+  padding-top: 3%;
+  width: 90%;
   margin: auto;
-  border: 10px 0;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
 }

@@ -1,0 +1,25 @@
+.landingPage { 
+  width: 100%;
+  height: 100%;
+  margin-top: 15%;
+}
+
+.landingPageHeader {
+  color: white;
+  padding: 15% 10%;
+  width: 100%;
+  height: 100%;
+  background: url(../../nice-restaurant.jpg);
+  background-position: 80% 80%;
+}
+
+.landingPageDescriptions {
+  padding: 15% 10%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.descBox {
+  margin: 5% 0;
+}
