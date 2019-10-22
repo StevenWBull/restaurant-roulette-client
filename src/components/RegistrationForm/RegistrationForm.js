@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react';
-import { Redirect } from 'react-router-dom';
+import { Redirect, Link } from 'react-router-dom';
 import { useForm } from '../../hooks/useForm';
 import ApiContext from '../../contexts/ApiContext';
 import './RegistrationForm.css';
@@ -34,15 +34,15 @@ export default function RegistrationForm() {
 
   console.log(values.full_name, values.user_name, values.password, values.retypePassword )
   return (
-    <div>
+    <div className='registrationContainer'>
       { onlineUser && <Redirect to='/home' />}
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} className='registerForm'>
         <div>
           <h2>Sign Up!</h2>
         </div>
         <div>
-          <label htmlFor='register_full_name'>Full Name: </label>
           <input 
+            placeholder="Full Name"
             type="text" 
             id='register_full_name'
             name='full_name'
@@ -50,8 +50,8 @@ export default function RegistrationForm() {
             onChange={handleChange} />
         </div>
         <div>
-          <label htmlFor='register_user_name'>Username: </label>
           <input 
+            placeholder='Username'
             type="text" 
             id='register_user_name'
             name='user_name'
@@ -59,8 +59,8 @@ export default function RegistrationForm() {
             onChange={handleChange} />
         </div>
         <div>
-          <label htmlFor='register_password'>Password: </label>
           <input 
+            placeholder="Password"
             type="password" 
             id='register_password'
             name='password'
@@ -68,8 +68,8 @@ export default function RegistrationForm() {
             onChange={handleChange} />
         </div>
         <div>
-          <label htmlFor='retype_register_password'>Re-enter Password: </label>
           <input 
+            placeholder="Confirm Password"
             type="password" 
             id='retype_register_password'
             name='retypePassword'
@@ -78,7 +78,10 @@ export default function RegistrationForm() {
         </div>
         {error && <span>{error}</span>}
         <div>
-          <button type='submit'>Submit</button>
+          <button type='submit'>Sign-Up!</button>
+        </div>
+        <div>
+          <p className='userRedirect'>Already have an account? <Link to='/login'>Sign in</Link>.</p>
         </div>
       </form>
     </div>
