@@ -13,6 +13,14 @@ form > div > h2 {
 form > div > input {
   margin-bottom: 1%;
   width: 80%;
+  outline: none;
+  border: none;
+  border-bottom: 1px solid rgb(124, 124, 124);
+}
+
+input:focus {
+  border-bottom: 1.5px solid black;
+  box-shadow: 1px gray;
 }
 
 #retype_register_password {

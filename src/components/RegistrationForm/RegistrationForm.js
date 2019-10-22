@@ -38,7 +38,7 @@ export default function RegistrationForm() {
       { onlineUser && <Redirect to='/home' />}
       <form onSubmit={handleSubmit} className='registerForm'>
         <div>
-          <h2>Sign Up!</h2>
+          <h2>Create Account</h2>
         </div>
         <div>
           <input 
@@ -81,7 +81,7 @@ export default function RegistrationForm() {
           <button type='submit'>Sign-Up!</button>
         </div>
         <div>
-          <p className='userRedirect'>Already have an account? <Link to='/login'>Sign in</Link>.</p>
+          <p className='userRedirect'>Already have an account? <Link to='/login'>Sign in</Link></p>
         </div>
       </form>
     </div>
