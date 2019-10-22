@@ -1,2 +1,15 @@
 header {
+  width: 100%;
+  position: fixed;
+  padding: 10px, 0;
+  top: 0;
+  margin-bottom: 5%;
+}
+
+.headerContainer {
+  width: 80%;
+  margin: auto;
+  border: 10px 0;
+  display: flex;
+  justify-content: space-around;
 }
