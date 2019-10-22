@@ -1,11 +1,10 @@
 .landingPage { 
   width: 100%;
   height: 100%;
-  margin-top: 15%;
+  margin-top: 12.5%;
 }
 
 .landingPageHeader {
-  margin-top: -2.1%;
   color: white;
   padding: 15% 10%;
   width: 100%;
@@ -25,4 +24,22 @@
 
 .descBox {
   margin: 5% 0;
+}
+
+@media only screen and (min-width: 768px) {
+  .landingPage {
+    margin-top: 8.5%;
+  }
+}
+
+@media only screen and (min-width: 1024px) {
+  .landingPage {
+    margin-top: 7.8%;
+  }
+
+  .landingPageDescriptions {
+    padding: 5% 5%;
+    flex-direction: row;
+    justify-content: space-around;
+  }
 }

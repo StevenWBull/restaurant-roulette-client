@@ -34,3 +34,35 @@ li {
   display: flex;
   justify-content: flex-end;
 }
+
+@media only screen and (min-width: 1024px) {
+  .userHomeScreenButtons {
+    width: 90%;
+    margin: 12% 5% 5% 5%;
+  }
+
+  .userHomeScreenContainer {
+    width: 100%;
+    margin: 0%;
+  }
+
+  ul {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 0 2%;
+  }
+
+  li {
+    width: 30%;
+    height: 23%;
+    margin: 0% 1%;
+    padding: 1%;
+  }
+
+  .editRestaurantContainer {
+    padding: 1% 2%;
+    width: 30%;
+}
+}

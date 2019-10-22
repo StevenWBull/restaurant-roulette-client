@@ -32,3 +32,13 @@ input:focus {
   font-size: 12px;
   opacity: 0.4;
 }
+
+@media only screen and (min-width: 1024px) {
+  .loginContainer {
+    width: 50%;
+    margin: 20% auto;
+    text-align: center;
+    border: 1px solid black;
+    padding: 3%;
+  }
+}
