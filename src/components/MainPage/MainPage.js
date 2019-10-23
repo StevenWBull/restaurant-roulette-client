@@ -1,10 +1,16 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Redirect } from 'react-router-dom';
+import { TokenService } from '../../services/token-service';
 import './MainPage.css';
 
 export default function MainPage() {
   const [ register, setRegister ] = useState(false);
   const [ signIn, setSignIn ] = useState(false);
+  const [ userVisited, setUserVisited ] = useState(false);
+
+  useEffect(() => {
+    setUserVisited(TokenService.hasVisitedObj());
+  }, [userVisited])
 
   const handleRegister = () => {
     setRegister(true);
@@ -18,6 +24,7 @@ export default function MainPage() {
     <section className='landingPage'>
       { register && <Redirect to='/register' />}
       { signIn && <Redirect to='/login' />}
+      { userVisited && <div>You've visited!</div>}
       <div className='landingPageHeader'>
         <div className='welcomeBox'>
           <div>

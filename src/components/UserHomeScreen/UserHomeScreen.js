@@ -46,7 +46,14 @@ export default function UserHomeScreen() {
   }
 
   const handleRandomGenerate = () => {
-    setGenerateRandom(!generateRandom)
+    setGenerateRandom(!!generateRandom);
+    setGenerateRandom(!generateRandom);
+  }
+
+  const handleReRandomGenerate = () => {
+    let count = Math.random() * 20;
+    count++;
+    setGenerateRandom(count);
   }
 
   const handleEdit = (ev) => {
@@ -151,6 +158,7 @@ export default function UserHomeScreen() {
           <button className='mainButtons'>Add Restaurant</button>
         </Link>}
         <button onClick={handleRandomGenerate} className='mainButtons'>{ !generateRandom ? 'Where am I eating?' : 'Thanks so much!' }</button>
+        { generateRandom && <button onClick={handleReRandomGenerate} className='mainButtons'>Hmm. Not there.</button>}
       </section>
       <section className='userHomeScreenContainer'>
         {renderPageView()}

@@ -12,5 +12,13 @@ export const TokenService = {
   },
   hasAuthToken() {
     return !!TokenService.getAuthToken()
+  },
+  saveVisitedObj() {
+    const visitedObj = { visited: true };
+    window.localStorage.setItem('visitedObj', JSON.stringify(visitedObj));
+  },
+  hasVisitedObj() {
+    const hasVisited = window.localStorage.getItem('visitedObj');
+    return !!hasVisited;
   }
 }

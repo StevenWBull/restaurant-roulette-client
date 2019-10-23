@@ -13,7 +13,10 @@ export const AuthApiService = {
     .then( res => {
       return (!res.ok) 
         ? res.json().then( e => Promise.reject(e))
-        : res.json().then(res => TokenService.saveAuthToken(res.authToken));
+        : res.json().then(res => {
+            TokenService.saveAuthToken(res.authToken)
+            TokenService.saveVisitedObj();
+          });
     })
   },
   postUser(user) {
