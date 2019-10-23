@@ -85,7 +85,7 @@ export default function UserHomeScreen() {
                 <br />
                 <div className='restuarantControlButtons'>
                   <button value={restaurant.id} onClick={handleEdit}>Edit</button>
-                  <button onClick={handleDelete} value={restaurant.id}>Delete</button>
+                  <button value={restaurant.id} onClick={handleDelete}>Delete</button>
                 </div>              
               </li>
               :
@@ -148,9 +148,9 @@ export default function UserHomeScreen() {
     <>
       <section className='userHomeScreenButtons'>
         { !generateRandom && <Link to='/addrestaurant'>
-          <button>Add Restaurant</button>
+          <button className='mainButtons'>Add Restaurant</button>
         </Link>}
-        <button onClick={handleRandomGenerate}>{ !generateRandom ? 'Where am I eating?' : 'Thanks so much!' }</button>
+        <button onClick={handleRandomGenerate} className='mainButtons'>{ !generateRandom ? 'Where am I eating?' : 'Thanks so much!' }</button>
       </section>
       <section className='userHomeScreenContainer'>
         {renderPageView()}

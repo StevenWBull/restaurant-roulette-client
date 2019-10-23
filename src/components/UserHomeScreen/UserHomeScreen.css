@@ -9,10 +9,34 @@
   text-align: center;
 }
 
+.mainButtons {
+  background-color: white;
+  color: rgb(73, 36, 69);
+  border: 3px solid rgb(73, 36, 69);
+  margin: 0 1%;
+  padding: 2%;
+}
+
+.mainButtons:hover {
+  background-color: rgb(215, 205, 204);
+}
+
 .editRestaurantContainer {
     text-align: left;
-    border: 1px solid black;
+    border: 1px solid white;
     padding: 3%;
+    background-color: rgb(73, 36, 69);
+}
+
+.editRestaurantContainer > form > div > input {
+  background-color: rgb(73, 36, 69);
+  color: white;
+  border-bottom: 1px solid rgb(215, 205, 204);
+}
+
+.editRestaurantContainer > form > div > input:focus {
+  border-bottom: 1.5px solid white;
+  box-shadow: 1px gray;
 }
 
 ul {
@@ -28,11 +52,30 @@ li {
   margin: 3% 0%;
   border: 1px solid black;
   padding: 3%;
+  background-color: rgb(73, 36, 69);
+}
+
+li > span {
+  color: white;
 }
 
 .restuarantControlButtons {
   display: flex;
   justify-content: flex-end;
+}
+
+.restuarantControlButtons > button {
+  background-color: rgb(73, 36, 69);
+  color: white;
+  border: 1px solid white;
+  margin: 0 0.5%;
+}
+
+@media only screen and (min-width: 768px) {
+  .userHomeScreenButtons {
+    width: 90%;
+    margin: 12% 5% 5% 5%;
+  }
 }
 
 @media only screen and (min-width: 1024px) {
