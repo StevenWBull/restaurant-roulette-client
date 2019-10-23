@@ -2,7 +2,8 @@
   width: 90%;
   margin: 35% 5%;
   text-align: center;
-  border: 1px solid black;
+  background-color: rgb(215, 205, 204);
+  border: 2px solid rgb(73, 36, 69);
   padding: 6%;
 }
 
@@ -11,15 +12,18 @@ form > div > h2 {
 }
 
 form > div > input {
+  text-align: center;
+  background-color: rgb(215, 205, 204);
   margin-bottom: 1%;
   width: 80%;
   outline: none;
   border: none;
   border-bottom: 1px solid rgb(124, 124, 124);
+  color: rgb(73, 36, 69);
 }
 
 input:focus {
-  border-bottom: 1.5px solid black;
+  border-bottom: 1.5px solid rgb(73, 36, 69);
   box-shadow: 1px gray;
 }
 
@@ -33,12 +37,19 @@ input:focus {
   opacity: 0.4;
 }
 
+.registrationButton {
+  width: 30%;
+  padding: 1.5%;
+  background-color: white;
+  border: 2px solid rgb(73, 36, 69);
+  color: rgb(73, 36, 69);
+}
+
 @media only screen and (min-width: 1024px) {
   .registrationContainer {
     width: 50%;
     margin: 20% auto;
     text-align: center;
-    border: 1px solid black;
     padding: 3%;
   }
 }

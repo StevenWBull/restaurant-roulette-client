@@ -49,7 +49,7 @@ export default function LoginForm() {
         </div>
         { error && <span>{error}</span>}
         <div>
-          <button type='submit'>Login</button>
+          <button type='submit' className='loginButton'>Login</button>
         </div>
         <div>
           <p className='userRedirect'>Don't have an account? <Link to='/register'>Sign up</Link></p>

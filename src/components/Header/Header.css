@@ -4,6 +4,11 @@ header {
   padding: 0 0 2%;
   top: 0;
   border-bottom: 2px solid black;
+  background-color: white;
+}
+
+h2 {
+  color: rgb(73, 36, 69);
 }
 
 .headerContainer {

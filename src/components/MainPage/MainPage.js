@@ -19,12 +19,14 @@ export default function MainPage() {
       { register && <Redirect to='/register' />}
       { signIn && <Redirect to='/login' />}
       <div className='landingPageHeader'>
-        <div>
-          <h1>Welcome!</h1>
-        </div>
-        <div>
-          <button className='landingPageButton' onClick={handleRegister}>Sign Up</button>
-          <button className='landingPageButton' onClick={handleSignIn}>Sign In</button>
+        <div className='welcomeBox'>
+          <div>
+            <h1>Welcome!</h1>
+          </div>
+          <div>
+            <button className='landingPageButton' onClick={handleRegister}>Sign Up</button>
+            <button className='landingPageButton' onClick={handleSignIn}>Sign In</button>
+          </div>
         </div>
       </div>
       <div className='landingPageDescriptions'>

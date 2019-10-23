@@ -81,8 +81,8 @@ export default function AddRestaurant() {
         </div>
         {error && <span>{error}</span>}
         <div>
-          <button type='submit'>Submit</button>
-          <button onClick={goBack}>Cancel</button>
+          <button type='submit' className='addRestaurantButton'>Submit</button>
+          <button onClick={goBack} className='addRestaurantButton'>Cancel</button>
         </div>
       </form>
     </div>

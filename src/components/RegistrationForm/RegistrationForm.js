@@ -76,7 +76,7 @@ export default function RegistrationForm() {
         </div>
         {error && <span>{error}</span>}
         <div>
-          <button type='submit'>Sign-Up!</button>
+          <button type='submit' className='registrationButton'>Sign-Up!</button>
         </div>
         <div>
           <p className='userRedirect'>Already have an account? <Link to='/login'>Sign in</Link></p>

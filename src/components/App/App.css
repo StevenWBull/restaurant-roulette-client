@@ -20,3 +20,9 @@
 .App-link {
   color: #09d3ac;
 }
+
+body {
+  position: relative;
+  min-height: 100vh;
+  padding-bottom: 2.5rem;
+}
