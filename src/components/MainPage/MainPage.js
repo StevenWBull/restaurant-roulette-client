@@ -50,7 +50,7 @@ export default function MainPage() {
         <div className="modal-content">
           <div className="modal-header">
             <span className="close" onClick={closeModal}>&times;</span>
-            <h2 className='modal-header-title'>Welcome to Restaurant Roullette!</h2>
+            <h2 className='modal-header-title'>Welcome to Restaurant Roulette!</h2>
           </div>
           <div className="modal-body">
             <p>Hello! Restaurant Roullette was created to simplify the saving of favorite restaurants and to give people the power to randomly generate a restaurant out of that list!</p>
