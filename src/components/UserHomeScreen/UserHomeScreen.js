@@ -69,8 +69,7 @@ export default function UserHomeScreen() {
     }
   }
 
-  const initialState = { restaurant_name: '', street_address: '', city_address: '', zipcode: '', cuisine_type: '' };
-  const [ values, handleChange, handleSubmit ] = useForm(initialState, updateRestaurant);
+  const [ values, handleChange, handleSubmit ] = useForm({}, updateRestaurant);
 
   const renderPageView = () => {
     return (
@@ -92,7 +91,7 @@ export default function UserHomeScreen() {
                 </div>              
               </li>
               :
-              <div className='editRestaurantContainer'>
+              <div className='editRestaurantContainer' key={restaurant.id}>
                 <form onSubmit={handleSubmit} key={restaurant.id}>
                   <div>
                     <input 
