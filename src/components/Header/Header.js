@@ -15,7 +15,7 @@ export default function Header() {
   return (
     <div className='headerContainer'>
       <div>
-        <h2>Restaurant Roulette</h2>
+        <Link to='/'className='headerLink'><h2>Restaurant Roulette</h2></Link>
       </div>
       { onlineUser ?
       <div className='user__logout'>

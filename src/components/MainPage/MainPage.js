@@ -1,12 +1,18 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { Redirect } from 'react-router-dom';
 import { TokenService } from '../../services/token-service';
+import ApiContext from '../../contexts/ApiContext';
+import ValidationContext from '../../contexts/ValidationContext';
+import config from '../../config';
 import './MainPage.css';
 
 export default function MainPage() {
   const [ register, setRegister ] = useState(false);
   const [ signIn, setSignIn ] = useState(false);
+  const [ demoLogin, setDemoLogin ] = useState(false);
   const [ userVisited, setUserVisited ] = useState(false);
+  const [ onlineUser, setOnlineUser ] = useContext(ValidationContext);
+  const { postLogin } = useContext(ApiContext);
 
   useEffect(() => {
     setUserVisited(TokenService.hasVisitedObj());
@@ -18,6 +24,12 @@ export default function MainPage() {
 
   const handleSignIn = () => {
     setSignIn(true);
+  }
+
+  const handleDemoLogin = async () => {
+    await postLogin(config.DEMO_LOGIN);
+    setOnlineUser();
+    setDemoLogin(true);
   }
 
   const closeModal = () => {
@@ -57,7 +69,7 @@ export default function MainPage() {
             <p> -- Steven Bull</p>
           </div>
           <div className='modal-footer'>
-            <button className='landingPageButton'>Demo</button>
+            <button className='landingPageButton' onClick={handleDemoLogin}>Demo</button>
           </div>
         </div>
       </div>
@@ -66,6 +78,7 @@ export default function MainPage() {
 
   return (
     <section className='landingPage'>
+      { demoLogin && <Redirect to='/home' />}
       { register && <Redirect to='/register' />}
       { signIn && <Redirect to='/login' />}
       { !userVisited && modalWindow()}
@@ -74,10 +87,11 @@ export default function MainPage() {
           <div>
             <h1>Welcome!</h1>
           </div>
+          { !onlineUser && 
           <div>
             <button className='landingPageButton' onClick={handleRegister}>Sign Up</button>
             <button className='landingPageButton' onClick={handleSignIn}>Sign In</button>
-          </div>
+          </div>}
         </div>
       </div>
       <div className='landingPageDescriptions'>

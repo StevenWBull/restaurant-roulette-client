@@ -11,6 +11,15 @@ h2 {
   color: rgb(73, 36, 69);
 }
 
+.headerLink {
+  text-decoration: none;
+  color: rgb(73, 36, 69);
+}
+
+.headerLink:hover {
+  cursor: pointer;
+}
+
 .headerContainer {
   padding-top: 3%;
   width: 90%;
