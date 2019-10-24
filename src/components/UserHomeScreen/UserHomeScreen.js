@@ -7,10 +7,8 @@ import { useForm } from '../../hooks/useForm';
 
 export default function UserHomeScreen() {
   const [ error, setError ] = useState(null);
-  const [ cuisine, setCuisine ] = useState(null);
   const [ restaurants, setRestaurants ] = useState([]);
   const [ generateRandom, setGenerateRandom ] = useState(false);
-  const [ isLoading, setIsLoading ] = useState(true);
   const [ deleteRest, setDeleteRest ] = useState(false);
   const [ editMode, setEditMode ] = useState(-1);
   const { getRestaurants, deleteRestaurants, getRandomRestaurants, editRestaurants } = useContext(ApiContext);
@@ -20,19 +18,17 @@ export default function UserHomeScreen() {
       const getData = async () => {
       const data = await getRestaurants()
       setRestaurants(data);
-      setIsLoading(false);
       }
       getData();
     }
     return;
-  }, [cuisine, deleteRest, generateRandom, editMode]);
+  }, [deleteRest, generateRandom, editMode]);
 
   useEffect( () => {
     if (generateRandom) {
       const getRandomRestaurant = async () => {
         const randomData = await getRandomRestaurants();
         setRestaurants(randomData);
-        setIsLoading(false);
       }
       getRandomRestaurant();
     }
