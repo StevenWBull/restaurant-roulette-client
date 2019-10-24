@@ -69,7 +69,7 @@ export default function MainPage() {
             <p> -- Steven Bull</p>
           </div>
           <div className='modal-footer'>
-            <button className='landingPageButton' onClick={handleDemoLogin}>Demo</button>
+            <button className='landingPageButton modalButton' onClick={handleDemoLogin}>Demo</button>
           </div>
         </div>
       </div>
