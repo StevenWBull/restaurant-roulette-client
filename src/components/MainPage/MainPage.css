@@ -121,6 +121,7 @@ h3 {
 }
 
 .modal-footer {
+  text-align: center;
   padding: 2px 16px;
   background-color: rgb(73, 36, 69);
   color: white;

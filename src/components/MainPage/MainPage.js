@@ -20,12 +20,24 @@ export default function MainPage() {
     setSignIn(true);
   }
 
+  const closeModal = () => {
+    const modal = document.getElementById('myModal');
+    modal.style.display = 'none';
+  }
+
+  window.onclick = function(event) {
+    const modal = document.getElementById('myModal');
+    if (event.target === modal) {
+      modal.style.display = 'none';
+    }
+  }
+
   const modalWindow = () => {
     return (
       <div id="myModal" className="modal">
         <div className="modal-content">
           <div className="modal-header">
-            <span className="close">&times;</span>
+            <span className="close" onClick={closeModal}>&times;</span>
             <h2 className='modal-header-title'>Welcome to Restaurant Roullette!</h2>
           </div>
           <div className="modal-body">
@@ -42,9 +54,10 @@ export default function MainPage() {
             <p>If you have any questions or suggestions, please feel free to navigate to the bottom of the page and get in contact with me.</p>
             <br />
             <p>Thank you and happy eating!</p>
+            <p> -- Steven Bull</p>
           </div>
           <div className='modal-footer'>
-            <button>Demo</button>
+            <button className='landingPageButton'>Demo</button>
           </div>
         </div>
       </div>
