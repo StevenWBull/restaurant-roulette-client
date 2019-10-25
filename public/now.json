@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "name": "Restaurant Roulette",
-  "alias": "Restaurant Roulette",
+  "name": "Restaurant roulette",
+  "alias": "Steven Restaurant Roulette",
   "routes": [
     {
       "src": "^/static/(.*)",
