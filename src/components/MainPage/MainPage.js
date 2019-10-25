@@ -97,15 +97,15 @@ export default function MainPage() {
       <div className='landingPageDescriptions'>
         <div className='descBox'>
           <h3>What makes RR special?</h3>
-          <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."</p>
+          <p>"Restaurant Roulette is a one of a kind application that not only stores your favorite restaurants but also allows you to randomly choose one to dine at! Think of rolling a die that has all your favoite restaurants on every side! Neat, right?"</p>
         </div>
         <div className='descBox'>
           <h3>Why choose RR?</h3>
-          <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."</p>
+          <p>"With Restaurant Roulette you never have to endure the indifferent 'Where do you want to eat?' back and forth conversations. The random restaurant chooser is great for date night and is 100% unbiased! Not happy with the random choice? Well, just click again!"</p>
         </div>
         <div className='descBox'>
           <h3>Save your restaurants!</h3>
-          <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."</p>
+          <p>"Restaurant Roulette allows you to save ALL your favorite restaurants in one place. There is no cap! Simply fill out the restaurant add form and your restaurant will be saved forever! (Or until you delete it)"</p>
         </div>
       </div>
     </section>
