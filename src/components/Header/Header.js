@@ -14,6 +14,10 @@ export default function Header() {
     setOnlineUser();
   }
 
+  const navigateHome = () => {
+    setAnimateMenu(false);
+  }
+
   const animateHamburgerMenu = (ev) => {
     setAnimateMenu(!animateMenu);
   }
@@ -32,6 +36,9 @@ export default function Header() {
           </div>
           { animateMenu &&
           <div className='dropdownContent'>
+            <Link to='/home' className='user_home_link'>
+              <span onClick={navigateHome}>Home</span>
+            </Link>
             <Link to='/' className='logout_user_link'>
               <span onClick={logoutUser}>Logout</span>
             </Link>
