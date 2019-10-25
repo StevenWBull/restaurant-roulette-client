@@ -22,10 +22,10 @@
 }
 
 .editRestaurantContainer {
-    text-align: left;
-    border: 1px solid white;
-    padding: 3%;
-    background-color: rgb(73, 36, 69);
+  text-align: left;
+  border: 1px solid white;
+  padding: 3%;
+  background-color: rgb(73, 36, 69);
 }
 
 .editRestaurantContainer > form > div > input {
@@ -93,6 +93,7 @@ li > span {
     width: 100%;
     height: 100%;
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
     padding: 0 2%;
   }
@@ -100,7 +101,7 @@ li > span {
   li {
     width: 30%;
     height: 23%;
-    margin: 0% 1%;
+    margin: 1% 1%;
     padding: 1%;
   }
 
